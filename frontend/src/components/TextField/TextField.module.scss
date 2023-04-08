@@ -1,0 +1,44 @@
+@import "../../styles/global";
+@import "../../styles/variables";
+
+* {
+  //border: 1px solid red;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 0 $padding-big;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  font-family: $font-family;
+
+  label {
+    font-size: 1.2rem;
+    padding: $padding-medium-small;
+  }
+
+  input {
+    width: 100%;
+    padding: $padding-medium-small;
+    border: 2px solid $primary-color;
+    border-radius: $border-radius-default;
+    outline: none;
+    transition: all 350ms linear;
+
+    &::placeholder {
+      color: grey;
+    }
+
+    &:focus {
+      border: 2px solid $primary-color;
+    }
+  }
+
+}
+
+
+//@media only screen and (max-width: 768px) {
+//
+//}

@@ -1,0 +1,28 @@
+@import "../../styles/global";
+@import "../../styles/variables";
+
+.btn {
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 350ms linear;
+  font-size: 1.2rem;
+  color: white;
+  padding: 5px 15px;
+  border-radius: $border-radius-default;
+  background: linear-gradient(-45deg, $primary-color, $primary-accent, magenta, green);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 50%;
+    }
+  }
+}

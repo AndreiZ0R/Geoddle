@@ -1,0 +1,27 @@
+$background-color: #f5f5f7;
+$pure-white: #ffffff;
+
+$dark: #1d1d1f;
+//$primary-color: #5e17eb;
+$primary-color: #8c54ff;
+$primary-accent: #ae4bc9;
+
+$font-family: Montserrat;
+
+$padding-small: 3px;
+$padding-medium-small: 5px;
+$padding-medium: 10px;
+$padding-default: 20px;
+$padding-big: 30px;
+
+$border-radius-small: 5px;
+$border-radius-default: 10px;
+$border-radius-medium: 15px;
+$border-radius-big: 25px;
+
+:export {
+  smallPadding: $padding-small;
+  mediumPadding: $padding-medium;
+  defaultPadding: $padding-default;
+  bigPadding: $padding-big;
+}

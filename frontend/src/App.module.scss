@@ -1,0 +1,31 @@
+@use "./styles/variables.scss" as vars;
+
+.margin {
+  .vertical {
+    .small {
+      margin: 0 vars.$padding-small;
+    }
+
+    .mediumSmall {
+      margin: 0 vars.$padding-medium-small;
+    }
+
+    .medium {
+      margin: 0 vars.$padding-medium;
+    }
+  }
+
+  .horizontal {
+    .small {
+      margin: vars.$padding-small 0;
+    }
+
+    .mediumSmall {
+      margin: vars.$padding-medium-small 0;
+    }
+
+    .medium {
+      margin: vars.$padding-medium 0;
+    }
+  }
+}
