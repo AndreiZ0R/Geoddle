@@ -25,10 +25,13 @@
   display: flex;
   align-items: center;
   flex-direction: row;
+  -webkit-animation: fadeIn 1s linear;
+  -o-animation: fadeIn 1s linear;
+  animation: fadeIn 1s linear;
 
   .logo {
     aspect-ratio: 1;
-    height: 400px;
+    height: 350px;
   }
 }
 
@@ -52,6 +55,7 @@
 
   .illustr {
     height: 500px;
+    object-fit: cover;
   }
 }
 
@@ -81,6 +85,7 @@
 
 @media only screen and (max-width: 1471px) {
   .illustr {
+    //height: 400px;
     display: none;
   }
   .half1 {

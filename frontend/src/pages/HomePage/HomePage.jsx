@@ -7,11 +7,15 @@ import FilledButton from "../../components/FilledButton/FilledButton";
 import AppForm from "../../components/AppForm/AppForm";
 import Padding from "../../components/Padding/Padding";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+import User from "../../models/User";
 
 export default function HomePage() {
     const states = {login: "login", signup: "signup"};
     const loginText = "Not enrolled? Create an account now";
     const signInText = "Already have an account? Log In";
+
+    const navigate = useNavigate();
 
     const [formState, setFormState] = useState(states.login);
 
@@ -45,7 +49,11 @@ export default function HomePage() {
         onSubmit={handleSubmit}
         submitButton={
             <Padding padding={variables.mediumPadding}>
-                <FilledButton label="Log In"/>
+                <FilledButton label="Log In" onClick={() => {
+                    navigate("/main", {
+                        state: new User('andreiz0r', 'foo@bar.com', '123')
+                    });
+                }}/>
             </Padding>}
         textFields={loginTextFields.map(textField =>
             <Padding

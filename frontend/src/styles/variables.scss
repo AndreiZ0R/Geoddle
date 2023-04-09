@@ -5,6 +5,7 @@ $dark: #1d1d1f;
 //$primary-color: #5e17eb;
 $primary-color: #8c54ff;
 $primary-accent: #ae4bc9;
+$secondary-color: #F0C300;
 
 $font-family: Montserrat;
 
@@ -24,4 +25,11 @@ $border-radius-big: 25px;
   mediumPadding: $padding-medium;
   defaultPadding: $padding-default;
   bigPadding: $padding-big;
+
+  mediumBorderRadius: $border-radius-medium;
+  defaultBorderRadius: $border-radius-default;
+
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+  backgroundColor: $background-color;
 }
