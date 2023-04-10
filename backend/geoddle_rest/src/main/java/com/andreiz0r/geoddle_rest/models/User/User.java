@@ -1,4 +1,4 @@
-package com.andreiz0r.geoddle_rest.models;
+package com.andreiz0r.geoddle_rest.models.User;
 
 import jakarta.persistence.*;
 

@@ -1,6 +1,6 @@
 package com.andreiz0r.geoddle_rest.controller;
 
-import com.andreiz0r.geoddle_rest.models.User;
+import com.andreiz0r.geoddle_rest.models.User.UserDTO;
 import com.andreiz0r.geoddle_rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @GetMapping
-    List<User> getAll() {
-        return userService.getAll();
+    List<UserDTO> getUsers() {
+        return userService.getUsers();
     }
 }
