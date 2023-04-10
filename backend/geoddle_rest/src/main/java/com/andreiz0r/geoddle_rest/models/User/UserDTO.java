@@ -4,6 +4,7 @@ public record UserDTO(
         int id,
         String email,
         String username,
-        boolean online
+        boolean online,
+        int tokens
 ) {
 }

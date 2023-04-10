@@ -1,5 +1,6 @@
 package com.andreiz0r.geoddle_rest.service;
 
+import com.andreiz0r.geoddle_rest.models.User.User;
 import com.andreiz0r.geoddle_rest.models.User.UserDTO;
 import com.andreiz0r.geoddle_rest.models.User.UserDTOMapper;
 import com.andreiz0r.geoddle_rest.repository.UserRepository;
@@ -22,5 +23,17 @@ public class UserService {
 
     public List<UserDTO> getUsers() {
         return userRepo.getUsers().stream().map(userDTOMapper).collect(Collectors.toList());
+    }
+
+    public void addUser(User user) {
+        userRepo.addUser(user.getEmail(), user.getPassword(), user.getUsername(), user.getOnline());
+    }
+
+    public void deleteById(int id) {
+        userRepo.deleteById(id);
+    }
+
+    public UserDTO getUserById(int id) {
+        return userDTOMapper.apply(userRepo.getUserById(id));
     }
 }

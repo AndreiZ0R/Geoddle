@@ -1,11 +1,10 @@
 package com.andreiz0r.geoddle_rest.controller;
 
+import com.andreiz0r.geoddle_rest.models.User.User;
 import com.andreiz0r.geoddle_rest.models.User.UserDTO;
 import com.andreiz0r.geoddle_rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +21,20 @@ public class UserController {
     @GetMapping
     List<UserDTO> getUsers() {
         return userService.getUsers();
+    }
+
+    @PostMapping(consumes = "application/json")
+    void addUser(@RequestBody User user) {
+        userService.addUser(user);
+    }
+
+    @DeleteMapping("/{id}")
+    void deleteUserById(@PathVariable int id) {
+        userService.deleteById(id);
+    }
+
+    @GetMapping("/{id}")
+    UserDTO getUserById(@PathVariable int id) {
+        return userService.getUserById(id);
     }
 }

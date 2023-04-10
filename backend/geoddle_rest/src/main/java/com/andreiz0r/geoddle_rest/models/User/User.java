@@ -10,20 +10,24 @@ public class User {
     private String password;
     private String username;
     private boolean online;
+    private int tokens;
+
 
     public User() {
     }
 
-    public User(int id, String email, String password, String username, boolean online) {
+    public User(int id, String email, String password, String username, boolean online, int tokens) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.username = username;
         this.online = online;
+        this.tokens = tokens;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     public int getId() {
         return id;
     }
@@ -32,6 +36,7 @@ public class User {
         this.id = id;
     }
 
+    @Column
     public String getEmail() {
         return email;
     }
@@ -40,6 +45,7 @@ public class User {
         this.email = email;
     }
 
+    @Column
     public String getPassword() {
         return password;
     }
@@ -48,6 +54,7 @@ public class User {
         this.password = password;
     }
 
+    @Column
     public String getUsername() {
         return username;
     }
@@ -56,6 +63,7 @@ public class User {
         this.username = username;
     }
 
+    @Column
     public boolean getOnline() {
         return online;
     }
@@ -64,5 +72,12 @@ public class User {
         this.online = online;
     }
 
+    @Column
+    public int getTokens() {
+        return tokens;
+    }
 
+    public void setTokens(int tokens) {
+        this.tokens = tokens;
+    }
 }
