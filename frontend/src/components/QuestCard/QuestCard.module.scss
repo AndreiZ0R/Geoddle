@@ -17,7 +17,7 @@
 }
 
 .card {
-  width: 90%;
+  width: 100%;
   background-color: $pure-white;
   border-radius: $border-radius-default;
   padding: $padding-medium;
@@ -50,9 +50,16 @@
       align-items: center;
       margin-top: $padding-medium;
       color: grey;
+
       &:before {
         content: "";
       }
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 90%;
   }
 }

@@ -1,0 +1,97 @@
+@import "../../styles/global";
+@import "../../styles/variables";
+
+.hex3 {
+  padding: $padding-medium-small $padding-medium;
+  background: $secondary-color;
+  -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+
+  font-weight: bold;
+  color: $background-color;
+  margin-left: $padding-medium;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  background-color: $background-color;
+
+  nav {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $padding-default;
+    background-color: $primary-color;
+
+    span {
+      color: $secondary-color;
+      font-weight: bolder;
+
+      span {
+        font-weight: bold;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  .quests {
+    padding: $padding-default;
+  }
+}
+
+section {
+  padding: $padding-big $padding-default $padding-small;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    border-radius: $border-radius-default;
+    padding: 10px 15px;
+    background-color: $pure-white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    transition: all 350ms ease-in-out;
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+
+    &:nth-of-type(2):hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      font-weight: bold;
+    }
+  }
+}
+
+.quests {
+  div {
+    transition: all 250ms linear;
+    cursor: pointer;
+  }
+
+  div > div:hover {
+    transform: scale(1.01);
+  }
+}
+
+.fader {
+  animation: fadeIn 3s linear;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    .quests {
+      width: 100%;
+      padding: $padding-default 0;
+    }
+  }
+}

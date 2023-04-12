@@ -27,6 +27,7 @@ public class QuestController {
     @PostMapping(consumes = "application/json")
     void addQuest(@RequestBody Quest quest) {
         questService.addQuest(quest);
+        //TODO: ad what is added
     }
 
     @GetMapping("/{id}")
@@ -37,5 +38,6 @@ public class QuestController {
     @DeleteMapping("/{id}")
     void deleteQuestById(@PathVariable int id) {
         questService.deleteQuestById(id);
+        //TODO: return what it's deleted
     }
 }

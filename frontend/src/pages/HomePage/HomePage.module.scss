@@ -12,13 +12,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+
+  .toast {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    height: 100px;
+  }
+
 }
 
 .mainCard {
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   overflow: hidden;
   width: 60%;
-  height: 80%;
+  height: 95%;
   gap: $padding-big;
   background-color: $pure-white;
   border-radius: $border-radius-default;

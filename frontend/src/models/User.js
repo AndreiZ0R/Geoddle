@@ -1,10 +1,13 @@
 export default class User {
-    constructor(username, email) {
-        this.username = username;
+    constructor(id, email, username, online, tokens) {
+        this.id = id;
         this.email = email;
+        this.username = username;
+        this.online = online;
+        this.tokens = tokens;
     }
 
-    static default() {
-        return new User('', '');
+    static fromIterable(iterable) {
+        return new User(...iterable);
     }
 }

@@ -24,7 +24,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             nativeQuery = true)
     void addUser(@Param("email") String email,
                  @Param("password") String password,
-                 @Param("username") String username,
+                 @Param("email") String username,
                  @Param("online") boolean online
     );
 
@@ -34,6 +34,14 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             nativeQuery = true)
     void deleteById(@Param("id") int id);
 
-    @Query(value = "SELECT * from User WHERE id=:id", nativeQuery = true)
+    @Query(value = "SELECT * FROM User WHERE id=:id", nativeQuery = true)
     User getUserById(@Param("id") int id);
+
+    @Query(value = "SELECT * FROM User WHERE username=:username",
+            nativeQuery = true)
+    User getUserByUsername(@Param("username") String username);
+
+    @Query(value = "SELECT * FROM User WHERE email=:email",
+            nativeQuery = true)
+    User getUserByEmail(@Param("email") String email);
 }

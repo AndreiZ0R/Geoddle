@@ -1,6 +1,8 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-import MainPage from "./pages/MainPage/MainPage";
+import QuestsPage from "./pages/QuestsPage/QuestsPage";
+import QuestDetailsPage from "./pages/QuestDetailsPage/QuestDetailsPage";
+import AddQuestPage from "./pages/AddQuestPage/AddQuestPage";
 
 function App() {
     return (
@@ -8,7 +10,9 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
-                    <Route path="/main" element={<MainPage/>}/>
+                    <Route path="/quests" element={<QuestsPage/>}/>
+                    <Route path="/quests/:questId" element={<QuestDetailsPage/>}/>
+                    <Route path="/postQuest" element={<AddQuestPage/>}/>
                 </Routes>
             </Router>
         </>

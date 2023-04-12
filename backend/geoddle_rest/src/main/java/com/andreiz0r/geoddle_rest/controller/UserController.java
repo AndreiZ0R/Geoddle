@@ -2,6 +2,8 @@ package com.andreiz0r.geoddle_rest.controller;
 
 import com.andreiz0r.geoddle_rest.models.User.User;
 import com.andreiz0r.geoddle_rest.models.User.UserDTO;
+import com.andreiz0r.geoddle_rest.models.User.UserLogIn;
+import com.andreiz0r.geoddle_rest.models.User.UserSignUp;
 import com.andreiz0r.geoddle_rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,5 +38,15 @@ public class UserController {
     @GetMapping("/{id}")
     UserDTO getUserById(@PathVariable int id) {
         return userService.getUserById(id);
+    }
+
+    @PostMapping("/signup")
+    UserDTO signUpUser(@RequestBody UserSignUp userSignUp) {
+        return userService.signUpUser(userSignUp);
+    }
+
+    @PostMapping("/login")
+    UserDTO loginUser(@RequestBody UserLogIn userLogIn) {
+        return userService.logInUser(userLogIn);
     }
 }

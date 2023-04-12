@@ -1,10 +1,15 @@
 export default class Quest {
-    constructor(author, title, description, tokensReward, date, city) {
+    constructor(id, author, title, description, tokensReward, date, city) {
+        this.id = id;
         this.author = author;
         this.title = title;
         this.description = description
-        this.tokensRewards = tokensReward;
+        this.tokensReward = tokensReward;
         this.date = date;
         this.city = city;
+    }
+
+    static fromIterable(iterable) {
+        return new Quest(...iterable);
     }
 }

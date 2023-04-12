@@ -7,6 +7,11 @@
   font-family: "JetBrains Mono", serif;
 }
 
+::selection {
+  background-color: #8c54ff;
+  color: white;
+}
+
 :export {
   @keyframes fadeIn {
     from {

@@ -21,7 +21,7 @@ public class QuestService {
     }
 
     public void addQuest(Quest quest) {
-        questRepo.addQuest(quest.getAuthor(), quest.getDescription(), quest.getTokensReward(), quest.getDate(), quest.getCity());
+        questRepo.addQuest(quest.getAuthor(), quest.getTitle(), quest.getDescription(), quest.getTokensReward(), quest.getDate(), quest.getCity());
     }
 
     public Quest getQuestById(int id) {

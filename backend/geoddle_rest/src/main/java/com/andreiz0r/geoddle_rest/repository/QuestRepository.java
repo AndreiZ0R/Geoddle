@@ -19,10 +19,11 @@ public interface QuestRepository extends JpaRepository<Quest, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO Quest(author, description, tokensReward, date, city)" +
-            "VALUES(:author,:description,:tokensReward,:date,:city)",
+    @Query(value = "INSERT INTO Quest(author, title, description, tokensReward, date, city)" +
+            "VALUES(:author, :title, :description, :tokensReward, :date, :city)",
             nativeQuery = true)
     void addQuest(@Param("author") String author,
+                  @Param("title") String title,
                   @Param("description") String description,
                   @Param("tokensReward") int tokensReward,
                   @Param("date") Timestamp date,

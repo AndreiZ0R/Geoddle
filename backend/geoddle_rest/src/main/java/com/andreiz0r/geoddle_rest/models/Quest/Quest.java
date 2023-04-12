@@ -9,6 +9,17 @@ import java.sql.Timestamp;
 public class Quest {
     private int id;
     private String author;
+    private String title;
+
+    @Column
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     private String description;
     private int tokensReward;
     private Timestamp date;
@@ -17,9 +28,10 @@ public class Quest {
     public Quest() {
     }
 
-    public Quest(int id, String author, String description, int tokensReward, Timestamp date, String city) {
+    public Quest(int id, String author, String title, String description, int tokensReward, Timestamp date, String city) {
         this.id = id;
         this.author = author;
+        this.title = title;
         this.description = description;
         this.tokensReward = tokensReward;
         this.date = date;
