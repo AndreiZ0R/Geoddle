@@ -30,7 +30,7 @@ public interface QuestRepository extends JpaRepository<Quest, Integer> {
                   @Param("city") String city
     );
 
-    @Query(value = "SELECT * from Quest where id=:id", nativeQuery = true)
+    @Query(value = "SELECT * FROM Quest WHERE id=:id", nativeQuery = true)
     Quest getQuestById(@Param("id") int id);
 
     @Transactional
@@ -38,4 +38,9 @@ public interface QuestRepository extends JpaRepository<Quest, Integer> {
     @Query(value = "DELETE FROM Quest WHERE id=:id",
             nativeQuery = true)
     void deleteQuestById(@Param("id") int id);
+
+    @Query(value = "SELECT * FROM Quest WHERE author=:author AND title=:title",
+            nativeQuery = true)
+    Quest getQuestByTitleAndAuthor(@Param("author") String author,
+                                   @Param("title") String title);
 }

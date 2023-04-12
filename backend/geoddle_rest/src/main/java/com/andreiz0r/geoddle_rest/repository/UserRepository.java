@@ -44,4 +44,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "SELECT * FROM User WHERE email=:email",
             nativeQuery = true)
     User getUserByEmail(@Param("email") String email);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE User set tokens=tokens+:value WHERE username=:username",
+            nativeQuery = true)
+    void addTokensToUserByUsername(@Param("value") int value, @Param("username") String username);
 }

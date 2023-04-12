@@ -1,0 +1,106 @@
+@import "../../styles/global";
+@import "../../styles/variables";
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: $background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .questCard {
+    font-size: 0.8rem;
+    width: 70%;
+    height: 80%;
+    background-color: $pure-white;
+    border-radius: $border-radius-default;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: $padding-default;
+
+    .expanded {
+      width: 100%;
+    }
+
+    .centered {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .header {
+      color: $primary-color;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .title {
+      font-size: 1.4rem;
+      font-weight: bolder;
+      margin: $padding-default 0;
+
+    }
+
+    .description {
+      margin: $padding-medium 0;
+      min-height: 20%;
+    }
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #bdbcbc;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: $background-color;
+
+    .questCard {
+      background-color: inherit;
+      width: inherit;
+      height: inherit;
+
+
+      .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: $pure-white;
+        border-radius: $border-radius-default;
+        width: 100%;
+        padding: $padding-medium;
+        box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+      }
+
+      .description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: $pure-white;
+        border-radius: $border-radius-default;
+        width: 100%;
+        padding: $padding-medium;
+        box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+      }
+    }
+
+    .answer {
+      position: absolute;
+      bottom: $padding-default;
+      left: $padding-default;
+    }
+  }
+}

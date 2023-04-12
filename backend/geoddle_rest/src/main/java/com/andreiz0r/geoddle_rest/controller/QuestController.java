@@ -25,9 +25,8 @@ public class QuestController {
     }
 
     @PostMapping(consumes = "application/json")
-    void addQuest(@RequestBody Quest quest) {
-        questService.addQuest(quest);
-        //TODO: ad what is added
+    Quest addQuest(@RequestBody Quest quest) {
+        return questService.addQuest(quest);
     }
 
     @GetMapping("/{id}")

@@ -8,7 +8,7 @@ import User from "../../models/User";
 import Quest from "../../models/Quest";
 import Padding from "../../components/Padding/Padding";
 import AddIcon from '@mui/icons-material/Add';
-import {getQuests} from "../../api/RestApi";
+import {getQuests, getUserByUsername} from "../../api/RestApi";
 
 export default function QuestsPage(props) {
     const [user, setUser] = useState({});
@@ -25,8 +25,17 @@ export default function QuestsPage(props) {
 
     useEffect(() => {
         fetchQuests();
-        setUser(User.fromIterable(Object.values(location.state)));
-    }, []);
+
+        if (location.state != null) {
+            if (location.state['fetch'] === true) {
+                getUserByUsername(location.state['username']).then(user => {
+                    setUser(User.fromIterable(Object.values(user)));
+                })
+            } else {
+                setUser(User.fromIterable(Object.values(location.state['user'])));
+            }
+        }
+    }, [location.state]);
 
     return <div className={styles.wrapper}>
         <nav>
@@ -38,7 +47,7 @@ export default function QuestsPage(props) {
         <section>
             <div>Available Quests</div>
             <div onClick={() => {
-                navigate("/postQuest");
+                navigate("/postQuest", {state: user.username});
             }}>
                 <AddIcon/>
             </div>
@@ -46,7 +55,7 @@ export default function QuestsPage(props) {
         <div className={styles.quests}>
             {quests.map(quest =>
                 <Padding padding={`${variables.mediumPadding} 0`}>
-                    <QuestCard quest={quest} extraClass={styles.fader}/>
+                    <QuestCard quest={quest} extraClass={styles.fader} currentUser={user.username}/>
                 </Padding>
             )}
         </div>

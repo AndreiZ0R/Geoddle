@@ -20,8 +20,9 @@ public class QuestService {
         return questRepo.getAll();
     }
 
-    public void addQuest(Quest quest) {
+    public Quest addQuest(Quest quest) {
         questRepo.addQuest(quest.getAuthor(), quest.getTitle(), quest.getDescription(), quest.getTokensReward(), quest.getDate(), quest.getCity());
+        return questRepo.getQuestByTitleAndAuthor(quest.getAuthor(), quest.getTitle());
     }
 
     public Quest getQuestById(int id) {

@@ -68,7 +68,7 @@ export default function HomePage() {
 
     useEffect(() => {
         if (user !== null) {
-            navigate("/quests", {state: user});
+            navigate("/quests", {state: {fetch: false, user: user}});
         }
     }, [user]);
 

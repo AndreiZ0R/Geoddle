@@ -3,6 +3,7 @@ package com.andreiz0r.geoddle_rest.service;
 import com.andreiz0r.geoddle_rest.models.User.*;
 import com.andreiz0r.geoddle_rest.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,6 +42,18 @@ public class UserService {
     }
 
     public UserDTO logInUser(UserLogIn userLogIn) {
-        return userDTOMapper.apply(userRepo.getUserByEmail(userLogIn.email()));
+        User user = userRepo.getUserByEmail(userLogIn.email());
+        if (user != null && user.getPassword().equals(userLogIn.password())) {
+            return userDTOMapper.apply(user);
+        }
+        return null;
+    }
+
+    public UserDTO getUserByUsername(String username) {
+        return userDTOMapper.apply(userRepo.getUserByUsername(username));
+    }
+
+    public void updateUserTokensByUsername(int value, String username) {
+        userRepo.addTokensToUserByUsername(value, username);
     }
 }

@@ -37,4 +37,6 @@ public class AnswerController {
     void deleteAnswerByQuestId(@PathVariable int questid) {
         answerService.deleteByQuestId(questid);
     }
+
+
 }

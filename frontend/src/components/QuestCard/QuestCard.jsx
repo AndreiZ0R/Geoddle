@@ -2,12 +2,12 @@ import styles from "./QuestCard.module.scss";
 import PlaceIcon from '@mui/icons-material/Place';
 import {useNavigate} from "react-router-dom";
 
-export default function QuestCard({quest = null, extraClass}) {
+export default function QuestCard({quest = null, extraClass, currentUser}) {
     const navigate = useNavigate();
 
     return <div className={`${styles.card} ${extraClass}`} onClick={() => {
-        //TODO:
-        navigate(`/quests/${quest.id}`, {state: quest});
+
+        navigate(`/quests/${quest.id}`, {state: {quest: quest, currentUser: currentUser}});
     }}>
         <div className={styles.title}>
             {quest.title}

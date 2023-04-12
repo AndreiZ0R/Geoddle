@@ -4,8 +4,22 @@ import Padding from "../../components/Padding/Padding";
 import OutlinedButton from "../../components/OutlinedButton/OutlinedButton";
 import TextField from "../../components/TextField/TextField";
 import variables from "../../styles/variables.scss";
+import {useLocation, useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {addQuest, addAnswer, getUserByUsername} from "../../api/RestApi";
 
 export default function AddQuestPage() {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [author, setAuthor] = useState("");
+    const [questId, setQuestId] = useState(-1);
+
+    useEffect(() => {
+        if (location.state != null) {
+            setAuthor(location.state);
+        }
+    });
+
     const textFields = [
         <TextField label="Title" id="title" type="text" required={true} placeholder="Brief summary"/>,
         <TextField label="Tokens Reward" type="number" placeholder="How much this quest is worth" id="tokens"/>,
@@ -17,8 +31,18 @@ export default function AddQuestPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submit");
-        //TODO: SEND DATA TO API
+
+        const title = document.querySelector("#title").value;
+        const tokens = document.querySelector("#tokens").value;
+        const city = document.querySelector("#city").value;
+        const description = document.querySelector("#desc").value;
+        const answer = document.querySelector("#answer").value;
+
+        addQuest(author, title, description, tokens, city).then(quest => {
+            setQuestId(quest.id);
+        });
+        addAnswer(questId, answer);
+        navigate("/quests", {state: {fetch: true, username: author}});
     }
 
     return <div className={styles.wrapper}>

@@ -6,6 +6,8 @@ import com.andreiz0r.geoddle_rest.models.User.UserLogIn;
 import com.andreiz0r.geoddle_rest.models.User.UserSignUp;
 import com.andreiz0r.geoddle_rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,7 +48,22 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    UserDTO loginUser(@RequestBody UserLogIn userLogIn) {
-        return userService.logInUser(userLogIn);
+    ResponseEntity<UserDTO> loginUser(@RequestBody UserLogIn userLogIn) {
+        UserDTO userDTO = userService.logInUser(userLogIn);
+        if (userDTO != null) {
+            return new ResponseEntity<>(userDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/username={username}")
+    UserDTO getUserByUsername(@PathVariable String username) {
+        return userService.getUserByUsername(username);
+    }
+
+    @PutMapping("/username={username}&value={value}")
+    void updateUserTokensByUsername(@PathVariable("username") String username, @PathVariable("value") int value) {
+        userService.updateUserTokensByUsername(value, username);
     }
 }
