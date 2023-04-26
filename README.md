@@ -8,7 +8,7 @@ Discover nearby locations and earn tokens!
 Basically, you can see quests and their city. The user who created the quest will give some hints and describe the area where the quest is taking place.
 For example, they can say something like ,,The quote that is wrote on the city's most visited place, near midtown" and then the other users can try and answer.
 <br>When someone does find the correct answer, the tokens will be granted to them from the poster's account.
-<br>In the future, maybe there will be a ranking system based off of amount of tokens or quests answered.
+<br>In the future, maybe there will be a ranking system based on the amount of tokens or quests answered.
 </p>
 
 <h2> Tech stack </h2>
