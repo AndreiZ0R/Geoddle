@@ -16,6 +16,8 @@ For example, they can say something like ,,The quote that is wrote on the city's
 <br>
 - Java and Spring Boot for the Rest API
 <br>
+- MySQL for the database
+<br>
 
 
 
